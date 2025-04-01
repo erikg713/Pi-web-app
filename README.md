@@ -7,3 +7,36 @@ Create a web app; Plug in Pi SDK
 ├── index.html
 ├── script.js
 └── style.css
+
+Backend Overview (Node.js + Express + MongoDB)
+
+1. Authentication route to verify Pi users
+
+
+2. Payments webhook to handle Pi payment events
+
+
+3. Product routes to fetch, create, update, and delete products
+
+
+4. Admin panel (simple web interface) with basic CRUD
+
+
+5. Dynamic product loading on the frontend
+
+
+
+
+---
+
+Tech Stack
+
+Node.js + Express for the API
+
+MongoDB for data storage
+
+Mongoose for schema models
+
+EJS (or React if you prefer) for admin panel
+
+Pi SDK for payments/auth
