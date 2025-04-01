@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,27 +60,29 @@
   <header>
     <h1>Palace of Goodz</h1>
     <p>The decentralized Pi marketplace</p>
-  </header>  <div class="container">
+  </header>
+  <div class="container">
     <button id="loginBtn">Login with Pi</button>
-    <div id="userInfo"></div><div class="product">
-  <div>
-    <h3>Product 1</h3>
-    <p>Nice item for Pi users.</p>
+    <div id="userInfo"></div>
+    <div class="product">
+      <div>
+        <h3>Product 1</h3>
+        <p>Nice item for Pi users.</p>
+      </div>
+      <button onclick="buyItem('product_1', 1)">Buy for 1π</button>
+    </div>
+    <div class="product">
+      <div>
+        <h3>Product 2</h3>
+        <p>Another item available.</p>
+      </div>
+      <button onclick="buyItem('product_2', 2)">Buy for 2π</button>
+    </div>
   </div>
-  <button onclick="buyItem('product_1', 1)">Buy for 1π</button>
-</div>
-
-<div class="product">
-  <div>
-    <h3>Product 2</h3>
-    <p>Another item available.</p>
-  </div>
-  <button onclick="buyItem('product_2', 2)">Buy for 2π</button>
-</div>
-
-  </div>  <footer>
+  <footer>
     &copy; 2025 Palace of Goodz. All rights reserved.
-  </footer>  <script>
+  </footer>
+  <script>
     const loginBtn = document.getElementById("loginBtn");
     const userInfo = document.getElementById("userInfo");
 
@@ -128,39 +131,6 @@
         console.error("Failed to process payment:", error);
       }
     }
-  </script></body>
-</html>
-<!-- views/admin.ejs --><!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel</title>
-  <style>
-    body { font-family: Arial; padding: 30px; background: #f5f5f5; }
-    form, .product-list { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
-    input, textarea { width: 100%; margin: 10px 0; padding: 10px; }
-    button { padding: 10px 15px; background: #6c5ce7; color: white; border: none; cursor: pointer; }
-  </style>
-</head>
-<body>
-  <h1>Admin Panel</h1>  <form action="/api/admin/add" method="POST">
-    <h2>Add Product</h2>
-    <input type="text" name="name" placeholder="Product Name" required />
-    <textarea name="description" placeholder="Description"></textarea>
-    <input type="number" name="price" placeholder="Price in Pi" required />
-    <input type="text" name="imageUrl" placeholder="Image URL" />
-    <button type="submit">Add Product</button>
-  </form>  <div class="product-list">
-    <h2>Existing Products</h2>
-    <% const Product = require('../models/Product'); const products = await Product.find(); %>
-    <% products.forEach(p => { %>
-      <div style="margin-bottom: 10px;">
-        <strong><%= p.name %></strong> - <%= p.price %>π
-        <form action="/api/admin/delete/<%= p._id %>" method="POST" style="display:inline">
-          <button type="submit">Delete</button>
-        </form>
-      </div>
-    <% }) %>
-  </div>
+  </script>
 </body>
-    </html>
+</html>
