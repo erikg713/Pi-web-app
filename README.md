@@ -8,7 +8,7 @@ Create a web app; Plug in Pi SDK
 ├── script.js
 └── style.css
 
-Backend Overview (Node.js + Express + MongoDB)
+### Backend Overview (Node.js + Express + MongoDB) ###
 
 1. Authentication route to verify Pi users
 
@@ -40,3 +40,25 @@ Mongoose for schema models
 EJS (or React if you prefer) for admin panel
 
 Pi SDK for payments/auth
+Thank you for providing the comprehensive documentation for Palace of Goodz,    
+
+Key Features:
+
+Pi Network Cryptocurrency Transactions:  
+
+Secure Blockchain Integration:  
+
+JWT-Based Authentication:  
+
+Robust Backend:  
+
+Modern Frontend:  
+
+
+Technology Stack:
+
+Backend:  
+
+Frontend:  
+
+Blockchain Integration:  
