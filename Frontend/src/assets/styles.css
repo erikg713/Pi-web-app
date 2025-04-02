@@ -1,15 +1,36 @@
+:root {
+  --primary-color: #6c5ce7;
+  --background-color: #f9f9f9;
+  --font-family: 'Arial', sans-serif;
+  --button-padding: 10px 15px;
+  --border-radius: 6px;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   margin: 0;
-  background: #f9f9f9;
+  background: var(--background-color);
   padding: 1rem;
 }
 
 button {
-  background: #6c5ce7;
+  background: var(--primary-color);
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
+  padding: var(--button-padding);
+  border-radius: var(--border-radius);
   cursor: pointer;
+}
+button:hover {
+  background: darken(var(--primary-color), 10%);
+}
+button:focus {
+  outline: 2px solid darken(var(--primary-color), 20%);
+  outline-offset: 2px;
+}
+/* Example of a simple CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
