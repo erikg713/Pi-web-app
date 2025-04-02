@@ -26,3 +26,12 @@ mongoose.connect(process.env.MONGO_URI)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+app.get('/admin', piAuth, async (req, res) => {
+  try {
+    const Product = require('./models/Product');
+    const products = await Product.find();
+    res.render('admin', { products });
+  } catch (error) {
+    res.status(500).send('Server Error');
+  }
+});
