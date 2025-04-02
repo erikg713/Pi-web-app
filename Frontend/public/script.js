@@ -98,3 +98,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fetch products on window load
   window.onload = fetchProducts;
 });
+window.onload = async () => {
+  const container = document.querySelector(".container");
+  try {
+    const res = await fetch("/api/products");
+    const products = await res.json();
+
+    products.forEach(p => {
+      const productEl = document.createElement("div");
+      productEl.className = "product";
+      productEl.innerHTML = `
+        <div>
+          <h3>${p.name}</h3>
+          <p>${p.description}</p>
+        </div>
+        <button onclick="buyItem('${p._id}', ${p.price})">Buy for ${p.price}π</button>
+      `;
+      container.appendChild(productEl);
+    });
+  } catch (err) {
+    console.error("Failed to load products:", err);
+  }
+};
