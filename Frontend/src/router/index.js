@@ -1,13 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-import Admin from '../views/Admin.vue';
+// Lazy load the Admin view
+const Admin = () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue');
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/admin', component: Admin },
+  { 
+    path: '/', 
+    component: Home, 
+    name: 'Home' 
+  },
+  { 
+    path: '/admin', 
+    component: Admin, 
+    name: 'Admin' 
+  },
 ];
 
-export default createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+// Error handling for the router
+router.onError((error) => {
+  console.error('Router error:', error);
+});
+
+export default router;
