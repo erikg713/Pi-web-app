@@ -1,3 +1,4 @@
+/* Root variables for theme */
 :root {
   --primary-color: #6c5ce7;
   --primary-color-dark: #5b4bc6; /* Alternative for darken */
@@ -9,6 +10,7 @@
   --margin-base: 1rem;
 }
 
+/* Global styles */
 body {
   font-family: var(--font-family);
   margin: 0;
@@ -16,6 +18,7 @@ body {
   padding: var(--margin-base);
 }
 
+/* Button styles */
 button {
   background: var(--primary-color);
   color: white;
@@ -34,9 +37,20 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Example of a simple CSS reset */
+/* Simple CSS reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  body {
+    padding: calc(var(--margin-base) / 2);
+  }
+
+  button {
+    padding: calc(var(--button-padding) / 2);
+  }
 }
