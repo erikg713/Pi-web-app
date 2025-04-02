@@ -1,9 +1,15 @@
 <template>
-  <button @click="login" :disabled="loading" aria-label="Login with Pi" :class="{ 'focus-visible': focusVisible }" @focus="handleFocus" @blur="handleBlur">
+  <button 
+    @click="login" 
+    :disabled="loading" 
+    aria-label="Login with Pi" 
+    :class="{ 'focus-visible': focusVisible }" 
+    @focusin="handleFocusVisible(true)" 
+    @focusout="handleFocusVisible(false)">
     <span v-if="loading">Loading...</span>
     <span v-else>Login with Pi</span>
   </button>
-  <p v-if="errorMessage">{{ errorMessage }}</p>
+  <p v-show="errorMessage">{{ errorMessage }}</p>
 </template>
 
 <script setup>
@@ -33,21 +39,24 @@ const login = async () => {
   }
 }
 
-const handleFocus = () => {
-  focusVisible.value = true
-}
-
-const handleBlur = () => {
-  focusVisible.value = false
+const handleFocusVisible = (state) => {
+  focusVisible.value = state
 }
 </script>
 
 <style scoped>
+:root {
+  --button-color: #4CAF50;
+  --button-hover-color: #45a049;
+  --button-disabled-color: #9E9E9E;
+  --focus-outline-color: #ffffff;
+}
+
 button {
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: #4CAF50;
+  background-color: var(--button-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -55,16 +64,16 @@ button {
 }
 
 button:disabled {
-  background-color: #9E9E9E;
+  background-color: var(--button-disabled-color);
   cursor: not-allowed;
 }
 
 button:not(:disabled):hover {
-  background-color: #45a049;
+  background-color: var(--button-hover-color);
 }
 
 button.focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--focus-outline-color);
   outline-offset: 2px;
 }
 </style>
