@@ -2,12 +2,26 @@
 A Web3-powered decentralized marketplace
 Create a web app; Plug in Pi SDK
 ### FILE STRUCTURE ###
-/pi-web-app
+---
+/palace-of-goodz
 │
-├── index.html
-├── script.js
-└── style.css
-
+├── server.js
+├── .env (add MONGO_URI & PORT)
+├── /models
+│   └── Product.js
+├── /routes
+│   ├── products.js
+│   ├── admin.js
+│   └── payment.js
+├── /views
+│   └── admin.ejs
+├── /public
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── package.json
+└── README.md
+---
 ### Backend Overview (Node.js + Express + MongoDB) ###
 
 1. Authentication route to verify Pi users
