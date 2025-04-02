@@ -28,6 +28,31 @@ Create a web app; Plug in Pi SDK
 
 ├── README.md
 └── .gitignore
+/backend
+├── server.js
+├── .env
+├── /routes
+│   ├── products.js
+│   ├── admin.js
+│   ├── payment.js
+│   └── auth.js
+├── /models
+│   └── Product.js
+├── /middleware
+│   └── auth.js
+└── package.json
+
+/frontend
+├── .env
+├── package.json
+├── /src
+│   ├── main.js
+│   ├── /router
+│   │   └── index.js
+│   └── /views
+│       ├── Home.vue
+│       └── Admin.vue
+
 
 ### Backend Overview (Node.js + Express + MongoDB) ###
 
