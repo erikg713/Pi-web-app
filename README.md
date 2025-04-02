@@ -110,3 +110,5 @@ Frontend:
 Blockchain Integration:  
 ### INSTALL DEPENDENCIES ###
 npm install express mongoose cors body-parser dotenv ejs
+### RUN LOCALLY ###
+node server.js
