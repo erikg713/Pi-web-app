@@ -25,3 +25,13 @@ router.post('/delete/:id', async (req, res) => {
 });
 
 module.exports = router;
+const router = require('express').Router();
+const Product = require('../models/Product');
+
+router.post('/add-product', async (req, res) => {
+  const product = new Product(req.body);
+  await product.save();
+  res.status(201).json(product);
+});
+
+module.exports = router;
