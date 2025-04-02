@@ -2,7 +2,7 @@
 A Web3-powered decentralized marketplace
 Create a web app; Plug in Pi SDK
 ### FILE STRUCTURE ###
----
+
 /palace-of-goodz
 ├── /frontend            ← Vue.js SPA or Vite App
 │   ├── public/
@@ -28,7 +28,7 @@ Create a web app; Plug in Pi SDK
 
 ├── README.md
 └── .gitignore
----
+
 ### Backend Overview (Node.js + Express + MongoDB) ###
 
 1. Authentication route to verify Pi users
