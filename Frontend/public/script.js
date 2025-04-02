@@ -120,3 +120,17 @@ window.onload = async () => {
     console.error("Failed to load products:", err);
   }
 };
+let currentUser = null;
+
+loginBtn.onclick = async () => {
+  try {
+    const scopes = ['username', 'payments'];
+    const authResult = await Pi.authenticate(scopes, onIncompletePaymentFound);
+    currentUser = authResult.user;
+    localStorage.setItem("piUser", JSON.stringify(currentUser));
+    userInfo.innerHTML = `<p>Welcome, @${currentUser.username}!</p>`;
+    console.log("Authenticated:", currentUser);
+  } catch (error) {
+    console.error("Authentication failed:", error);
+  }
+};
