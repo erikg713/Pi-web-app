@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "erikg713",
@@ -15,5 +16,23 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erikg713/Pi-web-app.git"
+  },
+  "keywords": ["web3", "decentralized", "marketplace", "vue", "express"],
+  "bugs": {
+    "url": "https://github.com/erikg713/Pi-web-app/issues"
+  },
+  "homepage": "https://github.com/erikg713/Pi-web-app#readme",
+  "contributors": [
+    {
+      "name": "erikg713",
+      "email": "your-email@example.com"
+    }
+  ],
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
