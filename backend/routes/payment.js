@@ -11,3 +11,14 @@ router.post('/webhook', (req, res) => {
 });
 
 module.exports = router;
+const router = require('express').Router();
+
+router.post('/initiate', (req, res) => {
+  res.json({ txid: 'mock_txid_12345' });
+});
+
+router.post('/verify', (req, res) => {
+  res.json({ status: 'verified' });
+});
+
+module.exports = router;
