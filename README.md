@@ -4,23 +4,30 @@ Create a web app; Plug in Pi SDK
 ### FILE STRUCTURE ###
 ---
 /palace-of-goodz
-│
-├── server.js
-├── .env (add MONGO_URI & PORT)
-├── /models
-│   └── Product.js
-├── /routes
-│   ├── products.js
-│   ├── admin.js
-│   └── payment.js
-├── /views
-│   └── admin.ejs
-├── /public
-│   ├── index.html
-│   ├── script.js
-│   └── style.css
-├── package.json
-└── README.md
+├── /frontend            ← Vue.js SPA or Vite App
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── views/
+│   │   └── main.js
+│   ├── vite.config.js
+│   └── package.json
+
+├── /backend             ← Node.js + Express API
+│   ├── server.js
+│   ├── .env
+│   ├── /models/
+│   ├── /routes/
+│   ├── /controllers/
+│   ├── /middleware/
+│   └── package.json
+
+├── /contracts           ← (Optional) Smart contract files
+│   ├── marketplace.sol
+│   └── deploy.js
+
+├── README.md
+└── .gitignore
 ---
 ### Backend Overview (Node.js + Express + MongoDB) ###
 
