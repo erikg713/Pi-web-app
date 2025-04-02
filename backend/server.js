@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
-
+const piAuth = require('./middleware/piAuth');
 const app = express();
 app.use(cors());
 app.use(express.json());
