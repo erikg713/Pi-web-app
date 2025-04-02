@@ -18,7 +18,18 @@ onMounted(async () => {
   products.value = await res.json();
 });
 
-function buy(product) {
-  console.log('Buying', product);
+async function buy(product) {
+  const username = window?.Pi?.authenticate ? await window.Pi.authenticate([]) : 'demo_user';
+  const response = await fetch(import.meta.env.VITE_BACKEND_API + '/api/payment/initiate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username,
+      amount: product.price,
+      memo: `Buying ${product.name}`,
+    }),
+  });
+  const result = await response.json();
+  alert('Transaction initiated with Pi. Transaction ID: ' + result.identifier);
 }
 </script>
