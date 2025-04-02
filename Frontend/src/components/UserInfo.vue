@@ -1,24 +1,21 @@
 <template>
-  <div class="user-info" aria-live="polite">
-    <p v-if="user">Welcome, @{{ user.username }}</p>
-    <p v-else>Welcome, Guest!</p>
+  <div v-if="user" class="user-info" aria-live="polite">
+    <p>Welcome, @{{ user.username }}</p>
+  </div>
+  <div v-else class="user-info" aria-live="polite">
+    <p>Welcome, Guest!</p>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineProps } from 'vue';
 
 // Define the props for the component
-const props = defineProps({
+const props = defineProps<{
   user: {
-    type: Object,
-    default: null,
-    validator: (value) => {
-      // Ensure the user object has a username property
-      return value === null || (value && typeof value.username === 'string');
-    }
-  }
-});
+    username: string
+  } | null
+}>();
 </script>
 
 <style scoped>
