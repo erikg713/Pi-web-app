@@ -1,8 +1,9 @@
 <template>
-  <button @click="login" :disabled="loading">
+  <button @click="login" :disabled="loading" aria-label="Login with Pi" :class="{ 'focus-visible': focusVisible }" @focus="handleFocus" @blur="handleBlur">
     <span v-if="loading">Loading...</span>
     <span v-else>Login with Pi</span>
   </button>
+  <p v-if="errorMessage">{{ errorMessage }}</p>
 </template>
 
 <script setup>
@@ -11,27 +12,38 @@ import { authenticateWithPi } from '../pi'
 const emit = defineEmits(['loginSuccess'])
 
 const loading = ref(false)
+const errorMessage = ref('')
+const focusVisible = ref(false)
 
 const login = async () => {
   loading.value = true
+  errorMessage.value = ''
   try {
     const user = await authenticateWithPi()
     if (user) {
       emit('loginSuccess', user)
     } else {
-      console.error('Authentication failed')
+      errorMessage.value = 'Authentication failed'
     }
   } catch (error) {
-    console.error('An error occurred during authentication', error)
+    errorMessage.value = 'An error occurred during authentication'
+    console.error(error)
   } finally {
     loading.value = false
   }
+}
+
+const handleFocus = () => {
+  focusVisible.value = true
+}
+
+const handleBlur = () => {
+  focusVisible.value = false
 }
 </script>
 
 <style scoped>
 button {
-  /* Add your custom styling here */
   padding: 10px 20px;
   font-size: 16px;
   color: white;
@@ -39,10 +51,20 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:disabled {
   background-color: #9E9E9E;
   cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color: #45a049;
+}
+
+button.focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 </style>
